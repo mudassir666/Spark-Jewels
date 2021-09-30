@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spark_and_jewels/models/accessory_blueprint.dart';
+import 'package:spark_and_jewels/screens/accessory_detail_screen.dart';
 
 class AccessoryItem extends StatelessWidget {
   @override
@@ -16,11 +17,8 @@ class AccessoryItem extends StatelessWidget {
           child: GridTile(
             child: GestureDetector(
               onTap: () {
-                // Navigator.of(context)
-                //     .pushNamed(AccessoryScreen.routeName, arguments: {
-                //   'id': id,
-                //   'title': title,
-                // });
+                Navigator.of(context)
+                    .pushNamed(AccessoryDetailScreen.routeName, arguments: accessory.id);
               },
               child: Image.network(
                 accessory.imageUrl,
