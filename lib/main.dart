@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spark_and_jewels/models/accessory.dart';
+import 'package:spark_and_jewels/models/cart.dart';
+import 'package:spark_and_jewels/models/order.dart';
 import 'package:spark_and_jewels/models/products.dart';
 import 'package:spark_and_jewels/screens/accessory_detail_screen.dart';
 import 'package:spark_and_jewels/screens/accessory_screen.dart';
-import 'package:spark_and_jewels/screens/product_screen.dart';
+import 'package:spark_and_jewels/screens/cart_screen.dart';
+
+// import 'package:spark_and_jewels/screens/product_screen.dart';
 import 'package:spark_and_jewels/screens/tabs_screen.dart';
 
 void main() {
@@ -19,6 +23,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (ctx) => Products()),
          ChangeNotifierProvider(create: (ctx) => Accessory()),
+         ChangeNotifierProvider(create: (ctx) => Cart()),
+         ChangeNotifierProvider(create: (ctx) => Order()),
       ],
       child: MaterialApp(
         title: 'Spark & Jewels',
@@ -31,6 +37,8 @@ class MyApp extends StatelessWidget {
            '/' : (ctx) => TabsScreen(),
            AccessoryScreen.routeName: (ctx) => AccessoryScreen(),
            AccessoryDetailScreen.routeName: (ctx) => AccessoryDetailScreen(),
+           CartScreen.routeName: (ctx) => CartScreen(),
+          
         },
       ),
     );

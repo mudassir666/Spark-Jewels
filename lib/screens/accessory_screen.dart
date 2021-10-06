@@ -2,7 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spark_and_jewels/models/accessory.dart';
+import 'package:spark_and_jewels/models/cart.dart';
+import 'package:spark_and_jewels/screens/cart_screen.dart';
 import 'package:spark_and_jewels/widgets/accessory_item.dart';
+import 'package:spark_and_jewels/widgets/badge.dart';
 
 class AccessoryScreen extends StatelessWidget {
   static const routeName = '/accessory';
@@ -23,6 +26,21 @@ class AccessoryScreen extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
         ),
+        actions: [
+          Consumer<Cart>(
+            builder: (ctx, cart, child) => Badge(
+              child: child as Widget,
+              value: cart.itemCount.toString(),
+              color: Colors.white,
+            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
+              icon: Icon(Icons.shopping_cart),
+            ),
+          ),
+        ],
       ),
       body: accessory.isNotEmpty ? CarouselSlider.builder(
         options: CarouselOptions(autoPlay: true,enlargeCenterPage: true,height: 500),
