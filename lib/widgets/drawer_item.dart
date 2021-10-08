@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:spark_and_jewels/screens/manage_product_screen.dart';
 
 class DrawerItem extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -33,11 +31,13 @@ class DrawerItem extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
-           Divider(),
+          Divider(),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text("Setting"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(ManageProductScreen.routeName);
+            },
           ),
         ],
       ),

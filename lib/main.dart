@@ -7,6 +7,11 @@ import 'package:spark_and_jewels/models/products.dart';
 import 'package:spark_and_jewels/screens/accessory_detail_screen.dart';
 import 'package:spark_and_jewels/screens/accessory_screen.dart';
 import 'package:spark_and_jewels/screens/cart_screen.dart';
+import 'package:spark_and_jewels/screens/edit_accessory_screen.dart';
+
+import 'package:spark_and_jewels/screens/edit_product_screen.dart';
+import 'package:spark_and_jewels/screens/manage_accessory_screen.dart';
+import 'package:spark_and_jewels/screens/manage_product_screen.dart';
 
 // import 'package:spark_and_jewels/screens/product_screen.dart';
 import 'package:spark_and_jewels/screens/tabs_screen.dart';
@@ -22,9 +27,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => Products()),
-         ChangeNotifierProvider(create: (ctx) => Accessory()),
-         ChangeNotifierProvider(create: (ctx) => Cart()),
-         ChangeNotifierProvider(create: (ctx) => Order()),
+        ChangeNotifierProvider(create: (ctx) => Accessory()),
+        ChangeNotifierProvider(create: (ctx) => Cart()),
+        ChangeNotifierProvider(create: (ctx) => Order()),
       ],
       child: MaterialApp(
         title: 'Spark & Jewels',
@@ -34,11 +39,14 @@ class MyApp extends StatelessWidget {
         // home: ProductScreen(),
         initialRoute: '/',
         routes: {
-           '/' : (ctx) => TabsScreen(),
-           AccessoryScreen.routeName: (ctx) => AccessoryScreen(),
-           AccessoryDetailScreen.routeName: (ctx) => AccessoryDetailScreen(),
-           CartScreen.routeName: (ctx) => CartScreen(),
-          
+          '/': (ctx) => TabsScreen(),
+          AccessoryScreen.routeName: (ctx) => AccessoryScreen(),
+          CartScreen.routeName: (ctx) => CartScreen(),
+          EditAccessoryScreen.routeName: (ctx) => EditAccessoryScreen(),
+          ManageProductScreen.routeName: (ctx) => ManageProductScreen(),
+          EditProductScreen.routeName: (ctx) => EditProductScreen(),
+          ManageAccessoryScreen.routeName: (ctx) => ManageAccessoryScreen(),
+          AccessoryDetailScreen.routeName: (ctx) => AccessoryDetailScreen(),
         },
       ),
     );
